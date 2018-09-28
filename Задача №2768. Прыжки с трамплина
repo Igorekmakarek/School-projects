@@ -2,28 +2,24 @@
 
 using namespace std;
 
-int
-main ()
+int main ()
 {
-  bool samemax = false;
-  bool samemin = false;
+  bool samemax = false;	   //переменная в которой мы проверяем есть ли такое же максимальное/минимальное число, что бы не было 
+  bool samemin = false;	   //больше двух чисел в скобках
   int max = 0;
-  int min = 100000;
-  string snumbers[5];
+  int min = 100000;		
   int numbers[5];
-  cout <<
-    "Введите пять чисел через пробел" <<
-    endl;
+  cout << "Введите пять чисел через пробел" << endl;
   cin >> numbers[0] >> numbers[1] >> numbers[2] >> numbers[3] >> numbers[4];
 
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 5; i++)	//проверяем каждое число
     {
 
-      if (numbers[i] > max)
-	max = numbers[i];
+      if (numbers[i] > max)	//если больше максимального
+	max = numbers[i];	//присваиваем новое значение
 
-      if (numbers[i] < min)
-	min = numbers[i];
+      if (numbers[i] < min)	//если меньше минимального
+	min = numbers[i];	//присваиваем новое значение
 
     }
 
