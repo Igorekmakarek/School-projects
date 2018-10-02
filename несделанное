@@ -4,31 +4,34 @@ using namespace std;
 
 int main()
 {
-    int howmanytimesprayed = 0;
-    int yearofbuilding = 1605;
-    int yearsofpraying[40];
-    int birth = 0;
-    int death = 0;
-    cout << "Введите два числа- дату рождения и дату смерти через пробел" << endl;
+    int howmanytimesprayed = 0;     //создаем переменную целочисленного типа что бы хранить счетчик мольб
+    int yearsofpraying[40];         //посчитав сколько раз всего было мольб от 1615 года до 2000 получаем число 40
+    int birth = 0;                  //сюда человек будет вводить дату рождения
+    int death = 0;                      //сюда человек будет вводить дату смерти
+    
+    cout << "Введите два числа - дату рождения и дату смерти через пробел" << endl;
     cin >> birth >> death;
     
-    if (birth > 2000 || death > 2000) {
-    cout << "Дата рождения или смерти не может быть больше 2000!" << endl;
-    return 0;
+    if (birth > 2000 || death > 2000) {     //если рождение или смерть больше 2000
+        cout << "Дата рождения или смерти не может быть больше 2000!" << endl;
+        return 0;
     }
     
-        for (int i = 0; i < 40; i++) {
-            if (i == 0) {
-            yearsofpraying[i] = yearofbuilding + 10;
-            }
-            else
-         yearsofpraying[i] = yearsofpraying[i - 1] + 10;
-         if (birth + 1 < yearsofpraying[i] < death) {
-         howmanytimesprayed++;
-         }
+     yearsofpraying[0] = 1615;          //первая мольба была через 10 лет после постройки храма, тоесть 1605 + 10 = 1615
+    
+    for (int i = 0; i < 40; i++) {      //переберая каждый элемент массива
+        
+            yearsofpraying[i] = yearsofpraying[i - 1] + 10;     //в каждую ячейку записываем дату в порядке возрастания на 10
+
+        if (birth + 1 < yearsofpraying[i] && yearsofpraying[i] <= death) {      //если принадлежит заданного диапазону
+        
+        //!!!ВАЖНО!!! В C++ не работают двойные неравенства, нужно писать через знак И!
+        
+            howmanytimesprayed++;                                           //прибавляем количество мольб
+        }
     }
-    cout << howmanytimesprayed; 
+    
+    cout << howmanytimesprayed;                 //выводим количество мольб
     return 0;
 }
 
-//задние 234 и еще решить 3519
