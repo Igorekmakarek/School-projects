@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main () {
+    int shirina;
+    int dlina;
+    int S;
+    
+    cout << "Введите ширину торта" << endl;
+    cin >> shirina;
+    cout << "Введите длину торта" << endl;
+    cin >> dlina;
+    
+    S = shirina * dlina;
+    
+    for (int i = 0; i < 2; i++) {
+        if (dlina < shirina) {
+        S = S - dlina;
+            shirina = shirina - 1;
+        }
+        else if (dlina > shirina) {
+        S = S - shirina;
+            dlina = dlina - 1;
+        }
+        else  {
+            S = S - shirina;
+            shirina = shirina - 1;
+        }
+    }
