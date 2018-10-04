@@ -1,0 +1,43 @@
+#include <iostream>
+#include "cmath"
+
+using namespace std;
+
+int main() {
+    
+    int k;
+    int pleasure;
+    int firstNum;
+    int secondNum;
+    int d = pow(10, 9);
+    
+    cout << "Введите количество конфет в наборе" << endl;
+    cin >> k;
+    if (k > 100 || k < 1) {
+        cout << "Неприемлимое количество конфет!" << endl;
+        return 0;
+    }
+    cout << "Введите удовольствие, которое ожидает получить Гермиона от Гарри" << endl;
+    cin >> pleasure;
+    
+    if (pleasure <= pow(-10,9) || pleasure >= pow(10,9)) {
+        cout << "Неприемлимое удовольствие" << endl;
+        return 0;
+    }
+    
+    for (int i = 0; i < k / 2; i++) {
+        if (k % 2 == 0) {
+            firstNum = rand() % d;
+            secondNum = pleasure - firstNum;
+            cout << firstNum << " " << secondNum << " ";
+        }
+        else {
+            firstNum = rand() % d;
+            cout << firstNum << " " << -1 * firstNum << " " << pleasure;
+        }
+        
+        
+    }
+    
+    return 0;
+}
