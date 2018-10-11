@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main () {
+    float x;
+    float y;
+    int days = 1;
+    
+    cin >> x >> y;
+    while (x < y) {
+        x = x + x / 100 * 10;
+        days++;
+    }
+    cout << days;
+    
+    return 0;
+}
