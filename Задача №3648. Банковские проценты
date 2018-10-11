@@ -1,0 +1,19 @@
+#include <iostream>
+#include "cmath"
+
+using namespace std;
+
+int main () {
+    double x,p,y;
+    int days = 0;
+    cin >> x >> p >> y;
+    
+    while (x <= y) {
+        x = x + x / 100 * p;
+        x = (int) x;
+        days++;
+    }
+    cout << days;
+    
+    return 0;
+}
