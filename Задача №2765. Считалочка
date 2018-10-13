@@ -1,0 +1,20 @@
+using System;
+
+namespace studyingc
+{
+	
+	class MainClass
+	{
+		public static void Main (string[] args) {
+			int whoiswoda;
+			string[] str = Console.ReadLine().Split(' ');
+			string[] names = Console.ReadLine ().Split (' ');
+			whoiswoda = str.Length % names.Length;
+			if (whoiswoda == 0)
+				whoiswoda = names.Length ;
+			Console.WriteLine (names [whoiswoda - 1]);
+
+		    }
+		}
+	}
+  //задача решина на c# потому что на с++ нет подходящей функции разделения слов по пробелам
