@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+    int temp[N];
+    int streak = 0;
+    int maxstreak = 0;
+    for (int i = 0; i < N; ++i) {
+        cin >> temp[i];
+        if (temp[i] > 0)
+            streak++;
+        else {
+            if (streak > maxstreak)
+            maxstreak = streak;
+            
+            streak = 0;
+        }
+    }
+        cout << maxstreak;
+    
+    return 0;
+}
