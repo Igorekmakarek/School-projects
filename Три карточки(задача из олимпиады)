@@ -1,0 +1,39 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int f (int a, int b, int c) {
+    
+    return 100 * a + 10 * b + c;
+}
+
+int main() {
+    int a, b, c;
+    cin >> a >> b >> c;
+    int chisla[6];
+        chisla[0] = f(a, b, c);
+        chisla[1] = f(a, c, b);
+        chisla[2] = f(b, c, a);
+        chisla[3] = f(b, a, c);
+        chisla[4] = f(c, b, a);
+        chisla[5] = f(c, a, b);
+    sort(chisla, chisla + 6);
+    cout << endl << a << " " << b << " " << c << endl;
+    if (a == b && b == c) {
+        cout << a << b << c;
+        return 0;
+    }
+    if (a == b || b == c || c == a)
+        for (int i = 0; i < 6; i = i + 2) {
+            if (chisla[i] >= 100)
+                cout << chisla[i] << endl;
+        }
+    else
+        for (int i = 0; i < 6; i++) {
+            if (chisla[i] >= 100)
+                cout << chisla[i] << endl;
+        }
+    
+    return 0;
+}
