@@ -19,7 +19,6 @@ int main() {
         chisla[4] = f(c, b, a);
         chisla[5] = f(c, a, b);
     sort(chisla, chisla + 6);
-    cout << endl << a << " " << b << " " << c << endl;
     if (a == b && b == c) {
         cout << a << b << c;
         return 0;
