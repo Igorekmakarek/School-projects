@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+string CaesarCipher (string S, int k) {
+    for (int i = 0; i < S.length(); i++) {
+        int d = 0;
+        if (S[i] == ' ') {
+            cout << " ";
+            continue;
+        }
+        if (( (int)S[i] > 64 && (int)S[i] < 91) || ((int)S[i] > 96 && (int)S[i] < 123)) {
+        if ((int)S[i] + 3 > 122 && toupper(S[i]) != S[i]) {
+                d = (int)S[i] - 119 + 96;
+            S[i] = (char)d;
+        }
+        if ((int)S[i] + 3 > 90 && toupper(S[i]) == S[i]) {
+                d = (int)S[i] - 87 + 64;
+            S[i] = (char)d;
+        }
+        else {
+            S[i] = S[i] + 3;
+        }
+        }
+        else {
+            cout << S[i];
+            continue;
+        }
+        cout << S[i];
+    }
+    return S;
+}
+
+
+int main () {
+    string S;
+    getline(cin, S);
+    CaesarCipher(S, 3);
+    
+    return 0;
+}
