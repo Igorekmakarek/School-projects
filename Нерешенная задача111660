@@ -1,30 +1,62 @@
 #include <iostream>
-#include "math.h"
+#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
+int compare(const void * x1, const void * x2)
+{                                                   //компаратор для сортировки по возрастанию с помощью qsort
+    return ( *(int*)x1 - *(int*)x2 );
+}
+
 int main()
 {
+    int sum = 0;
+    int prev = 0;
+    int numb = 0;
+    int k;
     int m;
     int N;
     cin >> N;
-    for (m = 0; N > 0; m++) {
-        N = N / 10;
+    k = N;
+    //РАЗДЕЛЕНИЕ ЧИСЛА НА ЦИФРЫ В МАССИВЕ
+    
+    for (m = 0; k > 0; m++) {                   //узнаем сколько в числе цифр
+        k = k / 10;
     }
     int num[m];
-    for (int m; m > 0; m--) {
-        int i = 0;
-        int d;
-        d = pow(10, m);
-        cout << d;
-        num[i] = N % d;
-        i++;
+    int l = pow (10, m-1);                  //возводим l в высшую степень
+    for (int i = 0; i < m; i++) {
+            num[i] = N / l % 10;        //записываем цифры числа в отдельные ячейки массива
+        l /= 10;                       //сокращаем степень l
+        }
+        
+        //СОРТИРОВКА ПО ВОЗРАСТАНИЮ
+    qsort(num, m, sizeof(int), compare);
+    
+        //СОБИРАНИЕ ЧИСЛА ИЗ ЦИФР МАССИВА
+    for (int i = 0; i < m; i++) {
+        if (i == 0) {
+            k = m-1;
+        numb = num[i] * pow(10, k);
+            prev = numb;
+            k--;
+        }
+        else {
+            numb = prev + num[i] * pow(10, k);
+        prev = numb;
+            k--;
     }
-    // for (int i = 0; i < m; i++)
-    // cout << num[i] << endl;
+    }
+    numb = numb * 9;
+    l = pow (10, m);
+    for (int i = 0; i < m + 1; i++) {
+        num[i] = numb / l % 10;
+        l /= 10;
+        sum = sum + num[i];
+    }
+    cout << sum << endl;
     
     
-    
-
     return 0;
 }
