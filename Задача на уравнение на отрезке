@@ -1,0 +1,33 @@
+//Известно, что уравнение 0.01e^0.5x = 5cos(4x) на отрезке [1.5; 2] имеет единственный корень. 
+//Найдите его приблизительное значение с точностью не менее 0.0001 и
+//запишите в ответе найденное значение с ровно пятью значащами цифрами после запятой
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+bool func(float x) {
+    bool num;
+    if (abs(0.01 * exp(0.5 * x) - 5 * cos(4 * x)) <= 0.00001) {
+        num = true;
+    }
+    else {
+        num = false;
+    }
+    return num;
+}
+
+int main() {
+    float a = 1.5;
+    float b = 2;
+    while (a <= b) {
+        if (func(a)) {
+            cout << a << endl;
+            break;
+        }
+        else
+            a = a + 0.000001;
+    }
+    
+    return 0;
+}
