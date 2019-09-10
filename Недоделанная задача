@@ -1,0 +1,23 @@
+https://informatics.mccme.ru/mod/statements/view.php?id=41371#1
+
+#include <iostream>
+#include <list>
+using namespace std;
+int main(){
+    int a, b, c, t, d;
+    int prom2;
+    int prom1;
+    list <int> a;
+    list <int> b;
+    list <int> c;
+
+        cin >> a >> b >> c >> t >> d;
+
+    prom1 = (t - 1) * d;
+    prom2 = t * d; 
+    if (a * a < prom2) {
+        a = a * a;
+    }
+    
+  return 0;
+}
