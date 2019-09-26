@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main(){
+  int n,m;
+    cin >> n >> m;
+    int arr1[11];
+    int arr2[6];
+    vector <int> same;
+    for (int i = 0; i < n; i++) {
+      cin >> arr1[i];
+    }
+    for (int i = 0; i < m; i++) {
+      cin >> arr2[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+        if (arr1[i] == arr2[j]) {
+          same.push_back(arr1[i]);
+        }
+      }
+    }
+for (int i = 0; i < same.size(); i++) {
+    for (int j = 0; j < same.size(); j++) {
+      if (same[i] == same[j]) {
+        same.erase(same.begin() + j);
+      }
+    }
+    sort(0, same.size());
+    cout << same[i] << " ";
+  }
+system("pause");
+  return 0;
+}
